@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Title>To-do List</Title>
+        <Title>To-Do List</Title>
       </View>
     )
   }

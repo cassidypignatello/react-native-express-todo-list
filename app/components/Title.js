@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
+  header: {
+    backgroundColor: 'skyblue',
+    padding: 30
+  },
   title: {
-    textAlign: 'center'
+    textAlign: 'center',
+    color: 'white'
   }
 })
 
