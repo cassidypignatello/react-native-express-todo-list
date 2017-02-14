@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, TextInput, Text } from 'react-native'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 import Title from '../components/Title'
+import Footer from '../components/Footer'
 import { actionCreators } from '../redux/todoRedux'
 
 const styles = StyleSheet.create({
@@ -26,6 +27,8 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <Title>To-Do List</Title>
+        <ScrollView></ScrollView>
+        <Footer>Remove completed items</Footer>
       </View>
     )
   }

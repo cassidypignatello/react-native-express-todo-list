@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 export default class Title extends Component {
 
   render() {
-    const {children} = this.props;
+    const {children} = this.props
     return (
       <View style={styles.header}>
         <Text style={styles.title}>{children}</Text>
