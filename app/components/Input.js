@@ -18,6 +18,15 @@ export default class Input extends Component {
 
   onChangeText = (text) => this.setState({text})
 
+  onSubmitEditing = () => {
+    const {onSubmitEditing} = this.props
+    const {text} = this.state
+
+    if (!text) return // Submit nothing if empty
+    onSubmitEditing(text)
+    this.setState({text: ''});
+  }
+
   render() {
     const {text} = this.state
     const {placeholder} = this.props
@@ -27,6 +36,7 @@ export default class Input extends Component {
           style={styles.input}
           value={text}
           onChangeText={this.onChangeText}
+          onSubmitEditing={this.onSubmitEditing}
           placeholder={placeholder}
         />
       </View>

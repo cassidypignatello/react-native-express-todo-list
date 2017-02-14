@@ -30,6 +30,7 @@ class App extends Component {
         <Title>To-Do List</Title>
         <Input
           placeholder={'Type a todo, then hit enter!'}
+          
           />
         <ScrollView></ScrollView>
         {/* <List></List> */}
