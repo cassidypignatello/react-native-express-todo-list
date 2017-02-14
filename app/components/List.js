@@ -4,11 +4,33 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-nati
 import Checkbox from './Checkbox'
 
 const styles = StyleSheet.create({
+  item: {
+    backgroundColor: 'whitesmoke',
+    marginBottom: 5,
+    padding: 15
+  }
 })
 
 export default class List extends Component {
+  renderItem = (text, index) => {
+    return (
+      <TouchableOpacity
+        style={styles.item}
+        key={index}
+      >
+        <Text>{text}</Text>
+      </TouchableOpacity>
+    );
+  }
 
   render() {
-    return null
+    const {list} = this.props
+    return (
+      <View>
+        <ScrollView>
+          {list.map(this.renderItem)}
+        </ScrollView>
+      </View>
+    );
   }
 }

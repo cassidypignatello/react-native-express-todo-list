@@ -5,6 +5,7 @@ import { Actions } from 'react-native-router-flux'
 import Title from '../components/Title'
 import Footer from '../components/Footer'
 import Input from '../components/Input'
+import List from '../components/List'
 import { actionCreators } from '../redux/todoRedux'
 
 const styles = StyleSheet.create({
@@ -24,16 +25,27 @@ class App extends Component {
     dispatch: PropTypes.func.isRequired,
   }
 
+  onAddItem = (text) => {
+    const {dispatch} = this.props
+    dispatch(actionCreators.add(text))
+  }
+
   render() {
+    const {items} = this.props
+
     return (
       <View style={styles.container}>
-        <Title>To-Do List</Title>
+        <Title>
+          To-Do List
+        </Title>
         <Input
           placeholder={'Type a todo, then hit enter!'}
-          
+          onSubmitEditing={this.onAddItem}
           />
-        <ScrollView></ScrollView>
-        {/* <List></List> */}
+        <List
+          list={items}
+        />
+        <ScrollView/>
         <Footer>Remove completed items</Footer>
       </View>
     )
