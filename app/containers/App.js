@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 import Title from '../components/Title'
 import Footer from '../components/Footer'
+import Input from '../components/Input'
 import { actionCreators } from '../redux/todoRedux'
 
 const styles = StyleSheet.create({
@@ -27,7 +28,11 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <Title>To-Do List</Title>
+        <Input
+          placeholder={'Type a todo, then hit enter!'}
+          />
         <ScrollView></ScrollView>
+        {/* <List></List> */}
         <Footer>Remove completed items</Footer>
       </View>
     )
