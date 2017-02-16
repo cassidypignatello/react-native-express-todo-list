@@ -28,6 +28,12 @@ export const reducer = (state = initialState, action) => {
         items: [payload, ...items]
       }
     }
+    case.types.REMOVE_ITEM: {
+      return {
+        ...state,
+        items: [...items].filter((item) => item !== payload)
+      }
+    }
     default: {
       return state
     }
