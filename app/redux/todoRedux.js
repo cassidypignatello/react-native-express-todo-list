@@ -1,15 +1,20 @@
 const types = {
-  ADD_ITEM: 'ADD_ITEM'
+  ADD_ITEM: 'ADD_ITEM',
+  REMOVE_ITEM: 'REMOVE_ITEM',
+  TOGGLE_ITEM_COMPLETED: 'TOGGLE_ITEM_COMPLETED'
 }
 
 export const actionCreators = {
   add: (item) => {
     return {type: types.ADD_ITEM, payload: item}
+  },
+  remove: (item) => {
+    return {type: types.REMOVE_ITEM, payload: item}
   }
 }
 
 const initialState = {
-  items: ['Click to remove me', 'Learn React Native', 'Start Coding', 'Deploy App'],
+  items: ['Click me', 'Learn React Native', 'Start Coding', 'Deploy App'],
 }
 
 export const reducer = (state = initialState, action) => {
