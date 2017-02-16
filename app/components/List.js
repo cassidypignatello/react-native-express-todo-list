@@ -12,11 +12,15 @@ const styles = StyleSheet.create({
 })
 
 export default class List extends Component {
+
   renderItem = (text, index) => {
+    const {onPressItem} = this.props
+
     return (
       <TouchableOpacity
         style={styles.item}
         key={index}
+        onPress={() => onPressItem(index)}
       >
         <Text>{text}</Text>
       </TouchableOpacity>
@@ -25,6 +29,7 @@ export default class List extends Component {
 
   render() {
     const {list} = this.props
+
     return (
       <View>
         <ScrollView>

@@ -30,6 +30,11 @@ class App extends Component {
     dispatch(actionCreators.add(text))
   }
 
+  onRemoveItem = (index) => {
+    const {dispatch} = this.props
+    dispatch(actionCreators.remove(index))
+  }
+
   render() {
     const {items} = this.props
 
@@ -44,6 +49,7 @@ class App extends Component {
           />
         <List
           list={items}
+          onPressItem={this.onRemoveItem}
         />
         <ScrollView/>
         <Footer>Remove completed items</Footer>

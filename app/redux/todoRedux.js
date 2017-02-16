@@ -8,8 +8,8 @@ export const actionCreators = {
   add: (item) => {
     return {type: types.ADD_ITEM, payload: item}
   },
-  remove: (item) => {
-    return {type: types.REMOVE_ITEM, payload: item}
+  remove: (index) => {
+    return {type: types.REMOVE_ITEM, payload: index}
   }
 }
 
@@ -28,10 +28,10 @@ export const reducer = (state = initialState, action) => {
         items: [payload, ...items]
       }
     }
-    case.types.REMOVE_ITEM: {
+    case types.REMOVE_ITEM: {
       return {
         ...state,
-        items: [...items].filter((item) => item !== payload)
+        items: items.filter((item, index) => index !== payload)
       }
     }
     default: {
