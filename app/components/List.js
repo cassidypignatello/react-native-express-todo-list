@@ -7,7 +7,12 @@ const styles = StyleSheet.create({
   item: {
     backgroundColor: 'whitesmoke',
     marginBottom: 5,
-    padding: 15
+    padding: 15,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  removeButton: {
+    color: 'red'
   }
 })
 
@@ -20,9 +25,13 @@ export default class List extends Component {
       <TouchableOpacity
         style={styles.item}
         key={index}
-        onPress={() => onPressItem(index)}
       >
         <Text>{text}</Text>
+        <TouchableOpacity
+          onPress={() => onPressItem(index)}
+        >
+          <Text style={styles.removeButton}>X</Text>
+        </TouchableOpacity>
       </TouchableOpacity>
     );
   }
