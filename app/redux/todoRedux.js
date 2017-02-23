@@ -10,6 +10,9 @@ export const actionCreators = {
   },
   remove: (index) => {
     return {type: types.REMOVE_ITEM, payload: index}
+  },
+  toggle: (index) => {
+    return {type: types.TOGGLE_ITEM_COMPLETED, payload: index}
   }
 }
 
@@ -32,6 +35,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         items: items.filter((item, index) => index !== payload)
+      }
+    }
+    case types.TOGGLE_ITEM_COMPLETED: {
+      return {
+        ...state,
+        items: items.map((item, index) => index === payload ? 'checked' : index)
       }
     }
     default: {

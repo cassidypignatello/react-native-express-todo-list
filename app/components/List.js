@@ -9,10 +9,20 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     padding: 15,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    // borderWidth: 2
   },
   removeButton: {
     color: 'red'
+  },
+  editItems: {
+    // borderWidth: 1,
+    width: 50,
+
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   }
 })
 
@@ -20,18 +30,20 @@ export default class List extends Component {
 
   renderItem = (text, index) => {
     const {onPressItem} = this.props
-
     return (
       <TouchableOpacity
         style={styles.item}
         key={index}
       >
         <Text>{text}</Text>
-        <TouchableOpacity
-          onPress={() => onPressItem(index)}
-        >
-          <Text style={styles.removeButton}>X</Text>
-        </TouchableOpacity>
+        <View style={styles.editItems}>
+          <Checkbox/>
+          <TouchableOpacity
+            onPress={() => onPressItem(index)}
+          >
+            <Text style={styles.removeButton}>X</Text>
+          </TouchableOpacity>
+        </View>
       </TouchableOpacity>
     );
   }
